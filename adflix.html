@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات فيديوهات UGC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #c9004d;
+        }
+        
+        .text-primary-custom {
+            color: #c9004d !important;
+        }
+        
+        .border-primary-custom {
+            border-color: #c9004d !important;
+        }
+        
+        .bg-primary-custom {
+            background-color: #c9004d !important;
+        }
+        
+        .btn-primary-custom {
+            background-color: #c9004d;
+            border-color: #c9004d;
+            color: white;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #a8003f;
+            border-color: #a8003f;
+            color: white;
+        }
+        
+        .nav-tabs {
+            border-bottom: 2px solid #c9004d;
+            gap: 10px;
+        }
+        .nav-tabs .nav-link {
+            background-color: #fff;
+            border: 2px solid #c9004d;
+            border-bottom: none;
+            color: #c9004d;
+            border-radius: 15px 15px 0 0;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-bottom: -2px;
+            position: relative;
+        }
+        .nav-tabs .nav-link:hover {
+            background-color: #c9004d;
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(201, 0, 77, 0.3);
+        }
+        .nav-tabs .nav-link.active {
+            background-color: #c9004d;
+            border-color: #c9004d;
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(201, 0, 77, 0.5);
+            z-index: 1;
+        }
+        .nav-tabs .nav-link.active:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(201, 0, 77, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                gap: 8px;
+                padding: 0 10px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .nav-tabs::-webkit-scrollbar {
+                display: none;
+            }
+            .nav-tabs .nav-link {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+                white-space: nowrap;
+                border-radius: 12px 12px 0 0;
+                min-width: fit-content;
+                font-weight: 600;
+            }
+            h1.h3 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        .service-animation-block {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-size: 2.5rem;
+            color: #000;
+            font-weight: bold;
+            direction: rtl;
+            font-family: 'Tajawal', sans-serif;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .service-animation-block {
+                font-size: 1.8rem;
+                gap: 6px;
+            }
+        }
+        
+        .service-animation-block .prefix-text, 
+        .service-animation-block .suffix-text {
+            color: #000;
+        }
+        
+        .service-animation-block .animated-border-box {
+            height: 60px;
+            width: auto;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+            border-radius: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .service-animation-block .animated-border-box {
+                height: 45px;
+                padding: 0 15px;
+                border-radius: 10px;
+            }
+        }
+        
+        .service-animation-block .animated-border-box:before {
+            content: '';
+            z-index: -2;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-image: conic-gradient(rgba(0,0,0,0), #c9004d 5%, #c9004d 25%, rgba(0,0,0,0) 30%);
+            animation: rotate 4s linear infinite;
+            will-change: transform;
+        }
+        
+        .service-animation-block .animated-border-box:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: 3px;
+            top: 3px;
+            width: calc(100% - 6px);
+            height: calc(100% - 6px);
+            background: #c9004d;
+            border-radius: 10px;
+        }
+        
+        .service-animation-block .service-text {
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .service-animation-block .service-text {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: translate(-50%, -50%) rotate(1turn);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-animation-block .animated-border-box:before {
+                animation-duration: 6s;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .service-animation-block .animated-border-box:before {
+                animation: none;
+            }
+        }
+        
+        .video-animated-border {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            padding: 3px;
+        }
+        
+        .video-animated-border:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+            width: 200%;
+            height: 200%;
+            background-image: conic-gradient(rgba(0,0,0,0), #c9004d 5%, #c9004d 25%, rgba(0,0,0,0) 30%);
+            animation: rotate 8s linear infinite;
+            will-change: transform;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .video-animated-border.show-effect:before {
+            opacity: 1;
+        }
+        
+        .video-animated-border .ratio {
+            position: relative;
+            z-index: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #000;
+        }
+        
+        .video-animated-border iframe {
+            border-radius: 10px;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .video-animated-border:before {
+                animation-duration: 10s;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .video-animated-border:before {
+                animation: none;
+            }
+        }
+        
+        .ratio-9x16 {
+            --bs-aspect-ratio: 177.78%;
+        }
+        
+        .progress-bar-container {
+            margin-top: 0;
+            padding: 12px 15px;
+            background: rgba(201, 0, 77, 0.05);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar-wrapper {
+            width: 100%;
+            height: 40px;
+            background-color: rgba(201, 0, 77, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: #c9004d;
+            border-radius: 8px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 0.85rem;
+            color: #000;
+            width: 100%;
+            z-index: 10;
+            pointer-events: none;
+            font-weight: 500;
+        }
+        
+        .progress-text .text-primary-custom {
+            color: #c9004d !important;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+
+    <!-- Header مع اللوغو -->
+    <header class="py-3">
+        <div class="container text-center">
+            <img src="https://adflix.ma/wp-content/uploads/2025/07/%D9%85%D8%AA%D8%B9%D9%88%D9%84%D8%B4-%D8%B9%D9%84%D9%89-Bouche-a-Oreil-%E2%80%A6-%D8%B9%D9%88%D9%84-%D8%B9%D9%84%D9%89-L-marketing-dial-adflix-4.png" alt="Logo" class="img-fluid" style="max-height: 80px;">
+        </div>
+    </header>
+
+    <!-- قسم الفيديو -->
+    <section class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <h1 class="h3 fw-bold text-center mb-3" style="font-family: 'Almarai', sans-serif;">
+                    <span class="text-dark">تشتغل في السوق المغربي، الخليجي أو الافريقي؟</span><br>
+                    <span class="text-dark" style="font-size: 1.4rem;">و تحتاج الى </span><span class="text-primary-custom" style="font-size: 1.4rem;">فيديوهات</span> <span class="text-primary-custom" style="font-size: 1.4rem;">UGC مقنعة؟</span>
+                </h1>
+                <div class="video-animated-border" data-video-effect>
+                    <div class="ratio ratio-16x9">
+                        <iframe 
+                        src="https://player.vimeo.com/video/1149836257?autoplay=1&muted=0&controls=1&quality=1080p&background=0" 
+                        title="Vimeo video player" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                        <div class="video-overlay"></div>
+                    </div>
+                </div>
+            <!-- شريط التقدم -->
+            <div class="progress-bar-container" data-countdown-box>
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar-fill" data-progress-bar></div>
+                    <div class="progress-text">
+                        ⏰ يرجى مشاهدة الفيديو أولاً - سيظهر العرض الكامل خلال <span class="fw-bold text-primary-custom" data-countdown style="font-size: 1.1rem;">3:00</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- المحتوى الرئيسي -->
+    <main data-main-content class="d-none bg-white py-5">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                    <div class="col-md-4">
+                        <div class="card bg-white border border-primary-custom h-100 shadow-lg">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-video fa-3x text-primary-custom mb-3"></i>
+                                <h5 class="card-title text-primary-custom fw-bold">فيديوهات UGC احترافية</h5>
+                                <p class="card-text text-dark">فيديوهات عالية الجودة تظهر تجربة حقيقية للمنتج</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-white border border-primary-custom h-100 shadow-lg">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-edit fa-3x text-primary-custom mb-3"></i>
+                                <h5 class="card-title text-primary-custom fw-bold">كتابة سكريبتات مقنعة</h5>
+                                <p class="card-text text-dark">سكريبتات مخصصة تناسب منتجك وسوقك المستهدف</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-white border border-primary-custom h-100 shadow-lg">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-cut fa-3x text-primary-custom mb-3"></i>
+                                <h5 class="card-title text-primary-custom fw-bold">مونتاج احترافي</h5>
+                                <p class="card-text text-dark">مونتاج عالي الجودة يجذب انتباه المشاهدين</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <h2 class="text-center text-dark mb-5">أمثلة الفيديوهات</h2>
+            
+            <!-- التبويبات -->
+            <ul class="nav nav-tabs justify-content-center" id="videoTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="category1-tab" data-bs-toggle="tab" data-bs-target="#category1" type="button" role="tab">
+                            GCC
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="category2-tab" data-bs-toggle="tab" data-bs-target="#category2" type="button" role="tab">
+                            AFRICA
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="category3-tab" data-bs-toggle="tab" data-bs-target="#category3" type="button" role="tab">
+                            MOROCCO
+                        </button>
+                    </li>
+            </ul>
+            
+            <div class="tab-content bg-white border border-primary-custom border-top-0 rounded-bottom p-4 shadow-lg" id="videoTabsContent"></div>
+        </div>
+        
+        <div class="container py-5">
+            <h2 class="text-center text-dark mb-5">حزماتنا</h2>
+
+            <div class="row g-4 mb-5" id="pricing-cards"></div>
+
+            <!-- الاستمارة -->
+            <div class="card bg-white border border-primary-custom shadow-lg mb-5">
+                <div class="card-body p-4">
+                    <h3 class="text-center text-primary-custom mb-4 fw-bold">للحصول على فيديو UGC مقنع، املئ الاستمارة أسفله</h3>
+                    
+                    <form id="contactForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label class="form-label text-dark fw-bold">الاسم الكامل *</label>
+                                <input type="text" name="fullname" class="form-control bg-white text-dark border-secondary" required placeholder="أدخل اسمك الكامل">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-dark fw-bold">رقم الهاتف *</label>
+                                <input type="tel" name="phone" class="form-control bg-white text-dark border-secondary" required placeholder="06XXXXXXXX">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label class="form-label text-dark fw-bold">السوق ؟ *</label>
+                                <select name="market" class="form-select bg-white text-dark border-secondary" required>
+                                    <option value="">اختر السوق</option>
+                                    <option value="Morocco">Morocco</option>
+                                    <option value="Gulf">الخليج</option>
+                                    <option value="Africa">أفريقيا</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-dark fw-bold">ما هي الخطة التي تريدها؟ *</label>
+                                <select name="plan" class="form-select bg-white text-dark border-secondary" required>
+                                    <option value="">اختر الخطة</option>
+                                    <option value="1">1 فيديو مقابل 115 دولار</option>
+                                    <option value="3" selected>3 فيديوهات UGC مقابل 261 دولار</option>
+                                    <option value="6">6 فيديوهات UGC مقابل 438 دولار</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-dark fw-bold">ما هو المنتج الذي تريد إنشاء فيديوهات UGC له؟ *</label>
+                            <textarea name="product" class="form-control bg-white text-dark border-secondary" rows="5" required placeholder="اكتب تفاصيل المنتج هنا..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary-custom btn-lg w-100 fw-bold" id="submitBtn">
+                            <span id="submitText">إرسال الطلب الآن</span>
+                            <span id="submitSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                    <div id="formMessage" class="alert d-none mt-3"></div>
+
+                    <p class="text-center text-dark mt-4">للتواصل معنا على الواتس اب</p>
+                    <a href="https://wa.me/message/FZGWHQYUN64SD1" class="btn btn-primary-custom btn-lg w-100" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i>
+                        تواصل معنا على WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const services = ['إعداد الأفكار', 'كتابة السكريبت', 'التصوير', 'مونتاج', 'صورة مصغرة'];
+        
+        const pricingPlans = [
+            { title: '1 فيديو UGC مقنع', price: '115$', badge: 'POPULAR', perVideo: false },
+            { title: '3 فيديوهات UGC مقنعة', price: '87$', badge: 'BEST VALUE', perVideo: true },
+            { title: '6 فيديوهات UGC مقنعة', price: '73$', badge: 'PREMIUM', perVideo: true }
+        ];
+        
+        const videoCategories = [
+            { id: 'category1', videos: ['2PX7DqleP8Q', 'A0_VENjSh1A', 'g9_QZ-q7LfU'] },
+            { id: 'category2', videos: ['wM8hWoCVvLU', 'BPd-uQfXqo4', 'tTK2CwYWOdE'] },
+            { id: 'category3', videos: ['QOfM4AeLtwQ', 'DJUqcMs5IHY', 't84f78NLo3E'] }
+        ];
+        
+        function createVideoIframe(videoId, index) {
+            return `
+                <div class="col-md-4">
+                    <div class="ratio ratio-9x16">
+                        <iframe src="https://www.youtube.com/embed/${videoId}" title="مثال فيديو ${index}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function createPricingCard(plan, index) {
+            const servicesList = services.map(service => `
+                <li class="mb-3 d-flex align-items-center">
+                    <i class="fas fa-check-circle text-primary-custom me-2"></i>
+                    <span class="text-dark">${service}</span>
+                </li>
+            `).join('');
+            
+            return `
+                <div class="col-md-4">
+                    <div class="card bg-white border border-primary-custom shadow-lg h-100 position-relative overflow-hidden">
+                        <span class="badge bg-primary-custom text-white position-absolute top-0 end-0 m-2" style="font-size: 0.8rem;">${plan.badge}</span>
+                        <div class="card-body p-4 text-center">
+                            <div class="mb-3">
+                                <i class="fas fa-video fa-3x text-primary-custom"></i>
+                            </div>
+                            <h4 class="text-primary-custom mb-3 fw-bold">${plan.title}</h4>
+                            <div class="mb-4">
+                                <span class="display-4 fw-bold text-dark">${plan.price}</span>
+                                ${plan.perVideo ? '<small class="text-dark d-block">لكل فيديو</small>' : ''}
+                            </div>
+                            <ul class="list-unstyled text-start mb-4">${servicesList}</ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        document.getElementById('pricing-cards').innerHTML = pricingPlans.map(createPricingCard).join('');
+        
+        const tabContent = document.getElementById('videoTabsContent');
+        videoCategories.forEach((category, catIndex) => {
+            const isActive = catIndex === 0;
+            const videosHtml = category.videos.map((videoId, vidIndex) => 
+                createVideoIframe(videoId, catIndex * 3 + vidIndex + 1)
+            ).join('');
+            
+            tabContent.innerHTML += `
+                <div class="tab-pane fade ${isActive ? 'show active' : ''}" id="${category.id}" role="tabpanel">
+                    <div class="row g-4">${videosHtml}</div>
+                </div>
+            `;
+        });
+        
+        const elements = {
+            countdownNumber: document.querySelector('[data-countdown]'),
+            countdownBox: document.querySelector('[data-countdown-box]'),
+            progressBar: document.querySelector('[data-progress-bar]'),
+            mainContent: document.querySelector('[data-main-content]'),
+            videoAnimatedBorder: document.querySelector('[data-video-effect]')
+        };
+        
+        let timeLeft = 180;
+        const totalTime = 180;
+        const progressInterval = setInterval(() => {
+            timeLeft--;
+            const progress = ((totalTime - timeLeft) / totalTime) * 100;
+            
+            let displayText = '';
+            if (timeLeft >= 60) {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                displayText = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            } else {
+                displayText = timeLeft + ' ثانية';
+            }
+            
+            if (elements.countdownNumber) elements.countdownNumber.textContent = displayText;
+            if (elements.progressBar) elements.progressBar.style.width = progress + '%';
+            
+            if (timeLeft <= 0) {
+                clearInterval(progressInterval);
+                if (elements.progressBar) elements.progressBar.style.width = '100%';
+                setTimeout(() => {
+                    if (elements.countdownBox) elements.countdownBox.style.display = 'none';
+                    if (elements.mainContent) {
+                        elements.mainContent.classList.remove('d-none');
+                        setTimeout(() => {
+                            window.scrollTo({ top: elements.mainContent.offsetTop - 50, behavior: 'smooth' });
+                        }, 200);
+                    }
+                }, 300);
+            }
+        }, 1000);
+        
+        setTimeout(() => {
+            if (elements.videoAnimatedBorder) elements.videoAnimatedBorder.classList.add('show-effect');
+        }, 3000);
+        
+        // إرسال الفورم إلى Google Sheets باستخدام script.js
+        // لاستخدام هذه الميزة:
+        // 1. اذهب إلى https://script.google.com
+        // 2. أنشئ مشروع جديد
+        // 3. الصق محتوى script.js في المشروع
+        // 4. انشر كـ Web App (Deploy > New deployment > Web app)
+        // 5. انسخ رابط Web App وضعها في GOOGLE_SCRIPT_URL أدناه
+        
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const submitSpinner = document.getElementById('submitSpinner');
+        const formMessage = document.getElementById('formMessage');
+        
+        // استبدل هذا الرابط برابط Google Apps Script Web App الخاص بك
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // تعطيل الزر وإظهار spinner
+            submitBtn.disabled = true;
+            submitText.textContent = 'جاري الإرسال...';
+            submitSpinner.classList.remove('d-none');
+            formMessage.classList.add('d-none');
+            
+            // جمع البيانات
+            const formData = new FormData(form);
+            const data = {
+                form_name: 'Adflix Contact Form',
+                fullname: formData.get('fullname'),
+                phone: formData.get('phone'),
+                market: formData.get('market'),
+                plan: formData.get('plan'),
+                product: formData.get('product'),
+                timestamp: new Date().toLocaleString('ar-EG')
+            };
+            
+            try {
+                // إرسال البيانات كـ POST request مع JSON body (متوافق مع script.js)
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                // في حالة no-cors، لا يمكننا قراءة الاستجابة
+                // لكن يمكننا افتراض النجاح
+                formMessage.classList.remove('d-none');
+                formMessage.classList.remove('alert-danger');
+                formMessage.classList.add('alert-success');
+                formMessage.textContent = '✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.';
+                form.reset();
+                
+            } catch (error) {
+                formMessage.classList.remove('d-none');
+                formMessage.classList.remove('alert-success');
+                formMessage.classList.add('alert-danger');
+                formMessage.textContent = '❌ حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى أو التواصل معنا على WhatsApp.';
+            } finally {
+                // إعادة تفعيل الزر
+                submitBtn.disabled = false;
+                submitText.textContent = 'إرسال الطلب الآن';
+                submitSpinner.classList.add('d-none');
+            }
+        });
+    </script>
+
+</body>
+</html>
