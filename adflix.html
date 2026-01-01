@@ -260,7 +260,7 @@
             height: 100%;
             z-index: 1;
             pointer-events: none;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: transparent;
         }
         
         @media (max-width: 768px) {
@@ -282,7 +282,6 @@
         .progress-bar-container {
             margin-top: 0;
             padding: 12px 15px;
-            background: rgba(201, 0, 77, 0.05);
             border-radius: 10px;
             margin-bottom: 1rem;
             position: relative;
@@ -292,7 +291,8 @@
         .progress-bar-wrapper {
             width: 100%;
             height: 40px;
-            background-color: rgba(201, 0, 77, 0.1);
+            background-color: transparent;
+            border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
             position: relative;
@@ -325,7 +325,7 @@
         }
     </style>
 </head>
-<body class="bg-light text-dark">
+<body class="text-dark">
 
     <!-- Header مع اللوغو -->
     <header class="py-3">
@@ -345,7 +345,7 @@
                 <div class="video-animated-border" data-video-effect>
                     <div class="ratio ratio-16x9">
                         <iframe 
-                        src="https://player.vimeo.com/video/1149836257?autoplay=1&muted=0&controls=1&quality=1080p&background=0" 
+                        src="https://player.vimeo.com/video/1149835798?autoplay=1&muted=0&controls=1&quality=1080p&background=0" 
                         title="Vimeo video player" 
                         frameborder="0" 
                         allow="autoplay; fullscreen; picture-in-picture" 
@@ -359,7 +359,7 @@
                 <div class="progress-bar-wrapper">
                     <div class="progress-bar-fill" data-progress-bar></div>
                     <div class="progress-text">
-                        ⏰ يرجى مشاهدة الفيديو أولاً - سيظهر العرض الكامل خلال <span class="fw-bold text-primary-custom" data-countdown style="font-size: 1.1rem;">3:00</span>
+                        ⏰ يرجى مشاهدة الفيديو أولاً - سيظهر العرض الكامل خلال <span class="fw-bold text-dark" data-countdown style="font-size: 1.1rem;">1</span> 
                     </div>
                 </div>
             </div>
@@ -425,9 +425,15 @@
         </div>
         
         <div class="container py-5">
-            <h2 class="text-center text-dark mb-5">حزماتنا</h2>
-
-            <div class="row g-4 mb-5" id="pricing-cards"></div>
+            <!-- بطاقة العرض -->
+            <div class="card bg-white border border-primary-custom shadow-lg mb-5">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                        <h3 class="text-primary-custom mb-0 fw-bold">فيديو اعلاني بتصوير محترف مع مودل</h3>
+                        <p class="text-dark mb-0 fs-5 fw-bold">ابتداءا من <span class="text-primary-custom">399 درهم</span></p>
+                    </div>
+                </div>
+            </div>
 
             <!-- الاستمارة -->
             <div class="card bg-white border border-primary-custom shadow-lg mb-5">
@@ -492,14 +498,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const services = ['إعداد الأفكار', 'كتابة السكريبت', 'التصوير', 'مونتاج', 'صورة مصغرة'];
-        
-        const pricingPlans = [
-            { title: '1 فيديو UGC مقنع', price: '115$', badge: 'POPULAR', perVideo: false },
-            { title: '3 فيديوهات UGC مقنعة', price: '87$', badge: 'BEST VALUE', perVideo: true },
-            { title: '6 فيديوهات UGC مقنعة', price: '73$', badge: 'PREMIUM', perVideo: true }
-        ];
-        
         const videoCategories = [
             { id: 'category1', videos: ['2PX7DqleP8Q', 'A0_VENjSh1A', 'g9_QZ-q7LfU'] },
             { id: 'category2', videos: ['wM8hWoCVvLU', 'BPd-uQfXqo4', 'tTK2CwYWOdE'] },
@@ -515,36 +513,6 @@
                 </div>
             `;
         }
-        
-        function createPricingCard(plan, index) {
-            const servicesList = services.map(service => `
-                <li class="mb-3 d-flex align-items-center">
-                    <i class="fas fa-check-circle text-primary-custom me-2"></i>
-                    <span class="text-dark">${service}</span>
-                </li>
-            `).join('');
-            
-            return `
-                <div class="col-md-4">
-                    <div class="card bg-white border border-primary-custom shadow-lg h-100 position-relative overflow-hidden">
-                        <span class="badge bg-primary-custom text-white position-absolute top-0 end-0 m-2" style="font-size: 0.8rem;">${plan.badge}</span>
-                        <div class="card-body p-4 text-center">
-                            <div class="mb-3">
-                                <i class="fas fa-video fa-3x text-primary-custom"></i>
-                            </div>
-                            <h4 class="text-primary-custom mb-3 fw-bold">${plan.title}</h4>
-                            <div class="mb-4">
-                                <span class="display-4 fw-bold text-dark">${plan.price}</span>
-                                ${plan.perVideo ? '<small class="text-dark d-block">لكل فيديو</small>' : ''}
-                            </div>
-                            <ul class="list-unstyled text-start mb-4">${servicesList}</ul>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-        
-        document.getElementById('pricing-cards').innerHTML = pricingPlans.map(createPricingCard).join('');
         
         const tabContent = document.getElementById('videoTabsContent');
         videoCategories.forEach((category, catIndex) => {
@@ -568,22 +536,17 @@
             videoAnimatedBorder: document.querySelector('[data-video-effect]')
         };
         
-        let timeLeft = 180;
-        const totalTime = 180;
+        let timeLeft = 60;
+        const totalTime = 60;
         const progressInterval = setInterval(() => {
             timeLeft--;
             const progress = ((totalTime - timeLeft) / totalTime) * 100;
             
-            let displayText = '';
-            if (timeLeft >= 60) {
-                const minutes = Math.floor(timeLeft / 60);
-                const seconds = timeLeft % 60;
-                displayText = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-            } else {
-                displayText = timeLeft + ' ثانية';
-            }
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const displayTime = minutes > 0 ? minutes + ':' + (seconds < 10 ? '0' : '') + seconds : seconds + ' ثانية';
             
-            if (elements.countdownNumber) elements.countdownNumber.textContent = displayText;
+            if (elements.countdownNumber) elements.countdownNumber.textContent = displayTime;
             if (elements.progressBar) elements.progressBar.style.width = progress + '%';
             
             if (timeLeft <= 0) {
