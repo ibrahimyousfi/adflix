@@ -290,10 +290,10 @@
         
         .progress-bar-wrapper {
             width: 100%;
-            height: 40px;
+            height: 30px;
             background-color: transparent;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 6px;
             overflow: hidden;
             position: relative;
         }
@@ -301,7 +301,7 @@
         .progress-bar-fill {
             height: 100%;
             background: #c9004d;
-            border-radius: 8px;
+            border-radius: 6px;
             width: 0%;
             transition: width 0.1s linear;
         }
@@ -312,16 +312,50 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 1.4rem;
             color: #000;
             width: 100%;
             z-index: 10;
             pointer-events: none;
             font-weight: 500;
+            padding: 0 10px;
+            white-space: nowrap;
         }
         
         .progress-text .text-primary-custom {
             color: #c9004d !important;
+        }
+        
+        @media (max-width: 768px) {
+            .progress-bar-wrapper {
+                height: 35px;
+            }
+            
+            .progress-text {
+                font-size: 1.1rem;
+                padding: 0 8px;
+                white-space: normal;
+                line-height: 1.2;
+            }
+            
+            .progress-text span {
+                font-size: 1.2rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .progress-bar-wrapper {
+                height: 40px;
+            }
+            
+            .progress-text {
+                font-size: 1rem;
+                padding: 0 5px;
+            }
+            
+            .progress-text span {
+                font-size: 1.1rem !important;
+            }
         }
     </style>
 </head>
@@ -333,7 +367,7 @@
             <img src="https://adflix.ma/wp-content/uploads/2025/07/%D9%85%D8%AA%D8%B9%D9%88%D9%84%D8%B4-%D8%B9%D9%84%D9%89-Bouche-a-Oreil-%E2%80%A6-%D8%B9%D9%88%D9%84-%D8%B9%D9%84%D9%89-L-marketing-dial-adflix-4.png" alt="Logo" class="img-fluid" style="max-height: 80px;">
         </div>
     </header>
-
+ R
     <!-- قسم الفيديو -->
     <section class="container py-5">
         <div class="row justify-content-center">
@@ -345,12 +379,15 @@
                 <div class="video-animated-border" data-video-effect>
                     <div class="ratio ratio-16x9">
                         <iframe 
-                        src="https://player.vimeo.com/video/1149835798?autoplay=1&muted=0&controls=1&quality=1080p&background=0" 
-                        title="Vimeo video player" 
+                        title="vimeo-player" 
+                        src="https://player.vimeo.com/video/1149835798?h=966de49c2f" 
+                        width="640" 
+                        height="360" 
                         frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
                         allowfullscreen>
-                    </iframe>
+                        </iframe>
                         <div class="video-overlay"></div>
                     </div>
                 </div>
@@ -359,7 +396,7 @@
                 <div class="progress-bar-wrapper">
                     <div class="progress-bar-fill" data-progress-bar></div>
                     <div class="progress-text">
-                        ⏰ يرجى مشاهدة الفيديو أولاً - سيظهر العرض الكامل خلال <span class="fw-bold text-dark" data-countdown style="font-size: 1.1rem;">1</span> 
+                        ⏰  سيظهر العرض الكامل خلال <span class="fw-bold text-dark" data-countdown style="font-size: 1.5rem;">1</span> 
                     </div>
                 </div>
             </div>
@@ -544,7 +581,7 @@
             
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
-            const displayTime = minutes > 0 ? minutes + ':' + (seconds < 10 ? '0' : '') + seconds : seconds + ' ثانية';
+            const displayTime = minutes > 0 ? minutes + ':' + (seconds < 10 ? '0' : '') + seconds : seconds + 's';
             
             if (elements.countdownNumber) elements.countdownNumber.textContent = displayTime;
             if (elements.progressBar) elements.progressBar.style.width = progress + '%';
@@ -583,7 +620,7 @@
         const formMessage = document.getElementById('formMessage');
         
         // استبدل هذا الرابط برابط Google Apps Script Web App الخاص بك
-        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDJkQ-mLJ4d2GssKfh7KU12wabMSJMACVqYobxQaJU-zT9lK_QsEIxo6kmppKZUDYq/exec';
         
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -596,34 +633,57 @@
             
             // جمع البيانات
             const formData = new FormData(form);
+            
+            // الحصول على نص الخطة بدلاً من القيمة
+            const planSelect = form.querySelector('select[name="plan"]');
+            const planText = planSelect.options[planSelect.selectedIndex].text;
+            
+            // تنسيق التاريخ بشكل أفضل
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: '2-digit', 
+                day: '2-digit' 
+            });
+            const timeStr = now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            const formattedDate = `${dateStr} ${timeStr}`;
+            
             const data = {
                 form_name: 'Adflix Contact Form',
+                timestamp: formattedDate,
+                product: formData.get('product'),
                 fullname: formData.get('fullname'),
                 phone: formData.get('phone'),
-                market: formData.get('market'),
-                plan: formData.get('plan'),
-                product: formData.get('product'),
-                timestamp: new Date().toLocaleString('ar-EG')
+                plan: planText,
+                market: formData.get('market')
             };
             
             try {
-                // إرسال البيانات كـ POST request مع JSON body (متوافق مع script.js)
+                // إرسال البيانات كـ form data (متوافق مع script.js)
+                const formDataToSend = new URLSearchParams();
+                Object.keys(data).forEach(key => {
+                    formDataToSend.append(key, data[key]);
+                });
+                
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                    body: JSON.stringify(data)
+                    body: formDataToSend.toString()
                 });
                 
                 // في حالة no-cors، لا يمكننا قراءة الاستجابة
-                // لكن يمكننا افتراض النجاح
-                formMessage.classList.remove('d-none');
-                formMessage.classList.remove('alert-danger');
-                formMessage.classList.add('alert-success');
-                formMessage.textContent = '✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.';
+                // لكن يمكننا افتراض النجاح والتوجيه مباشرة
                 form.reset();
+                
+                // التوجيه مباشرة إلى صفحة الشكر
+                window.location.href = 'https://adflix.ma/thank-you/';
                 
             } catch (error) {
                 formMessage.classList.remove('d-none');
