@@ -8,206 +8,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            font-family: 'Tajawal', sans-serif;
-        }
+        * { font-family: 'Tajawal', sans-serif; }
         
-        :root {
-            --primary-color: #c9004d;
-        }
-        
-        .text-primary-custom {
-            color: #c9004d !important;
-        }
-        
-        .border-primary-custom {
-            border-color: #c9004d !important;
-        }
-        
-        .bg-primary-custom {
-            background-color: #c9004d !important;
-        }
-        
+        .text-primary-custom { color: #c9004d !important; }
+        .border-primary-custom { border-color: #c9004d !important; }
+        .bg-primary-custom { background-color: #c9004d !important; }
         .btn-primary-custom {
             background-color: #c9004d;
             border-color: #c9004d;
             color: white;
         }
-        
         .btn-primary-custom:hover {
             background-color: #a8003f;
             border-color: #a8003f;
             color: white;
-        }
-        
-        .nav-tabs {
-            border-bottom: 2px solid #c9004d;
-            gap: 10px;
-        }
-        .nav-tabs .nav-link {
-            background-color: #fff;
-            border: 2px solid #c9004d;
-            border-bottom: none;
-            color: #c9004d;
-            border-radius: 15px 15px 0 0;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            margin-bottom: -2px;
-            position: relative;
-        }
-        .nav-tabs .nav-link:hover {
-            background-color: #c9004d;
-            color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(201, 0, 77, 0.3);
-        }
-        .nav-tabs .nav-link.active {
-            background-color: #c9004d;
-            border-color: #c9004d;
-            color: #000;
-            font-weight: bold;
-            box-shadow: 0 5px 20px rgba(201, 0, 77, 0.5);
-            z-index: 1;
-        }
-        .nav-tabs .nav-link.active:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(201, 0, 77, 0.6);
-        }
-        
-        @media (max-width: 768px) {
-            .nav-tabs {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                gap: 8px;
-                padding: 0 10px;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-            .nav-tabs::-webkit-scrollbar {
-                display: none;
-            }
-            .nav-tabs .nav-link {
-                padding: 12px 20px;
-                font-size: 0.9rem;
-                white-space: nowrap;
-                border-radius: 12px 12px 0 0;
-                min-width: fit-content;
-                font-weight: 600;
-            }
-            h1.h3 {
-                font-size: 1.1rem;
-            }
-        }
-        
-        .service-animation-block {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            font-size: 2.5rem;
-            color: #000;
-            font-weight: bold;
-            direction: rtl;
-            font-family: 'Tajawal', sans-serif;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
-        
-        @media (max-width: 768px) {
-            .service-animation-block {
-                font-size: 1.8rem;
-                gap: 6px;
-            }
-        }
-        
-        .service-animation-block .prefix-text, 
-        .service-animation-block .suffix-text {
-            color: #000;
-        }
-        
-        .service-animation-block .animated-border-box {
-            height: 60px;
-            width: auto;
-            padding: 0 20px;
-            position: relative;
-            overflow: hidden;
-            z-index: 0;
-            border-radius: 12px;
-        }
-        
-        @media (max-width: 768px) {
-            .service-animation-block .animated-border-box {
-                height: 45px;
-                padding: 0 15px;
-                border-radius: 10px;
-            }
-        }
-        
-        .service-animation-block .animated-border-box:before {
-            content: '';
-            z-index: -2;
-            text-align: center;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(0deg);
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background-repeat: no-repeat;
-            background-position: 0 0;
-            background-image: conic-gradient(rgba(0,0,0,0), #c9004d 5%, #c9004d 25%, rgba(0,0,0,0) 30%);
-            animation: rotate 4s linear infinite;
-            will-change: transform;
-        }
-        
-        .service-animation-block .animated-border-box:after {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            left: 3px;
-            top: 3px;
-            width: calc(100% - 6px);
-            height: calc(100% - 6px);
-            background: #c9004d;
-            border-radius: 10px;
-        }
-        
-        .service-animation-block .service-text {
-            position: relative;
-            z-index: 1;
-            color: #fff;
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-        
-        @media (max-width: 768px) {
-            .service-animation-block .service-text {
-                font-size: 1.8rem;
-            }
-        }
-        
-        @keyframes rotate {
-            100% {
-                transform: translate(-50%, -50%) rotate(1turn);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .service-animation-block .animated-border-box:before {
-                animation-duration: 6s;
-            }
-        }
-        
-        @media (prefers-reduced-motion: reduce) {
-            .service-animation-block .animated-border-box:before {
-                animation: none;
-            }
         }
         
         .video-animated-border {
@@ -216,7 +30,6 @@
             border-radius: 12px;
             padding: 3px;
         }
-        
         .video-animated-border:before {
             content: '';
             position: absolute;
@@ -227,16 +40,11 @@
             height: 200%;
             background-image: conic-gradient(rgba(0,0,0,0), #c9004d 5%, #c9004d 25%, rgba(0,0,0,0) 30%);
             animation: rotate 8s linear infinite;
-            will-change: transform;
             z-index: 0;
             opacity: 0;
             transition: opacity 0.5s ease;
         }
-        
-        .video-animated-border.show-effect:before {
-            opacity: 1;
-        }
-        
+        .video-animated-border.show-effect:before { opacity: 1; }
         .video-animated-border .ratio {
             position: relative;
             z-index: 1;
@@ -244,60 +52,18 @@
             overflow: hidden;
             background-color: #000;
         }
-        
-        .video-animated-border iframe {
-            border-radius: 10px;
-            z-index: 2;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-            background-color: transparent;
-        }
-        
-        @media (max-width: 768px) {
-            .video-animated-border:before {
-                animation-duration: 10s;
-            }
-        }
-        
-        @media (prefers-reduced-motion: reduce) {
-            .video-animated-border:before {
-                animation: none;
-            }
-        }
-        
-        .ratio-9x16 {
-            --bs-aspect-ratio: 177.78%;
-        }
-        
-        .progress-bar-container {
-            margin-top: 0;
-            padding: 12px 15px;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            position: relative;
-            overflow: hidden;
+        @keyframes rotate {
+            100% { transform: translate(-50%, -50%) rotate(1turn); }
         }
         
         .progress-bar-wrapper {
             width: 100%;
             height: 30px;
-            background-color: transparent;
             border: 1px solid #ddd;
             border-radius: 6px;
             overflow: hidden;
             position: relative;
         }
-        
         .progress-bar-fill {
             height: 100%;
             background: #c9004d;
@@ -305,7 +71,6 @@
             width: 0%;
             transition: width 0.1s linear;
         }
-        
         .progress-text {
             position: absolute;
             top: 50%;
@@ -322,39 +87,44 @@
             white-space: nowrap;
         }
         
-        .progress-text .text-primary-custom {
-            color: #c9004d !important;
+        .videos-scroll-container {
+            overflow: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 20px 0;
         }
+        .videos-scroll-container::-webkit-scrollbar { display: none; }
+        .videos-scroll-wrapper {
+            display: flex;
+            gap: 20px;
+            padding: 10px;
+            animation: scroll-infinite 20s linear infinite;
+        }
+        .videos-scroll-wrapper:hover { animation-play-state: paused; }
+        @keyframes scroll-infinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .video-item {
+            flex: 0 0 calc(33.333% - 14px);
+            min-width: calc(33.333% - 14px);
+            max-width: calc(33.333% - 14px);
+        }
+        .video-item .ratio { --bs-aspect-ratio: 150%; }
         
+        @media (max-width: 992px) {
+            .video-item {
+                flex: 0 0 calc(50% - 10px);
+                min-width: calc(50% - 10px);
+                max-width: calc(50% - 10px);
+            }
+        }
         @media (max-width: 768px) {
-            .progress-bar-wrapper {
-                height: 35px;
-            }
-            
-            .progress-text {
-                font-size: 1.1rem;
-                padding: 0 8px;
-                white-space: normal;
-                line-height: 1.2;
-            }
-            
-            .progress-text span {
-                font-size: 1.2rem !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .progress-bar-wrapper {
-                height: 40px;
-            }
-            
-            .progress-text {
-                font-size: 1rem;
-                padding: 0 5px;
-            }
-            
-            .progress-text span {
-                font-size: 1.1rem !important;
+            .progress-text { font-size: 1.1rem; }
+            .video-item {
+                flex: 0 0 calc(100% - 20px);
+                min-width: calc(100% - 20px);
+                max-width: calc(100% - 20px);
             }
         }
     </style>
@@ -373,8 +143,8 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
                 <h1 class="h3 fw-bold text-center mb-3" style="font-family: 'Almarai', sans-serif;">
-                    <span class="text-dark">تشتغل في السوق المغربي، الخليجي أو الافريقي؟</span><br>
-                    <span class="text-dark" style="font-size: 1.4rem;">و تحتاج الى </span><span class="text-primary-custom" style="font-size: 1.4rem;">فيديوهات</span> <span class="text-primary-custom" style="font-size: 1.4rem;">UGC مقنعة؟</span>
+                    <span class="text-dark">اليوم في Adflix، فيديو اعلاني </span><span class="text-primary-custom" style="font-size: 1.4rem;">UGC</span><br>
+                    <span class="text-dark" style="font-size: 1.4rem;">ابتداءا من </span><span class="text-primary-custom" style="font-size: 1.4rem;">349 درهم</span>
                 </h1>
                 <div class="video-animated-border" data-video-effect>
                     <div class="ratio ratio-16x9">
@@ -407,58 +177,12 @@
     <!-- المحتوى الرئيسي -->
     <main data-main-content class="d-none bg-white py-5">
         <div class="container">
-            <div class="row g-4 mb-5">
-                    <div class="col-md-4">
-                        <div class="card bg-white border border-primary-custom h-100 shadow-lg">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-video fa-3x text-primary-custom mb-3"></i>
-                                <h5 class="card-title text-primary-custom fw-bold">فيديوهات UGC احترافية</h5>
-                                <p class="card-text text-dark">فيديوهات عالية الجودة تظهر تجربة حقيقية للمنتج</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-white border border-primary-custom h-100 shadow-lg">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-edit fa-3x text-primary-custom mb-3"></i>
-                                <h5 class="card-title text-primary-custom fw-bold">كتابة سكريبتات مقنعة</h5>
-                                <p class="card-text text-dark">سكريبتات مخصصة تناسب منتجك وسوقك المستهدف</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-white border border-primary-custom h-100 shadow-lg">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-cut fa-3x text-primary-custom mb-3"></i>
-                                <h5 class="card-title text-primary-custom fw-bold">مونتاج احترافي</h5>
-                                <p class="card-text text-dark">مونتاج عالي الجودة يجذب انتباه المشاهدين</p>
-                            </div>
-                        </div>
-                    </div>
+            <h2 class="text-center text-dark mb-3">أمثلة الفيديوهات</h2>
+            
+            <!-- فيديوهات المغرب مع scroll أفقي -->
+            <div class="videos-scroll-container">
+                <div class="videos-scroll-wrapper" id="videosContainer"></div>
             </div>
-
-            <h2 class="text-center text-dark mb-5">أمثلة الفيديوهات</h2>
-            
-            <!-- التبويبات -->
-            <ul class="nav nav-tabs justify-content-center" id="videoTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="category1-tab" data-bs-toggle="tab" data-bs-target="#category1" type="button" role="tab">
-                            GCC
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="category2-tab" data-bs-toggle="tab" data-bs-target="#category2" type="button" role="tab">
-                            AFRICA
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="category3-tab" data-bs-toggle="tab" data-bs-target="#category3" type="button" role="tab">
-                            MOROCCO
-                        </button>
-                    </li>
-            </ul>
-            
-            <div class="tab-content bg-white border border-primary-custom border-top-0 rounded-bottom p-4 shadow-lg" id="videoTabsContent"></div>
         </div>
         
         <div class="container py-5">
@@ -535,35 +259,34 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const videoCategories = [
-            { id: 'category1', videos: ['2PX7DqleP8Q', 'A0_VENjSh1A', 'g9_QZ-q7LfU'] },
-            { id: 'category2', videos: ['wM8hWoCVvLU', 'BPd-uQfXqo4', 'tTK2CwYWOdE'] },
-            { id: 'category3', videos: ['QOfM4AeLtwQ', 'DJUqcMs5IHY', 't84f78NLo3E'] }
+        // فيديوهات المغرب - 6 فيديوهات على الأقل
+        const moroccoVideos = [
+            'QOfM4AeLtwQ', 
+            'DJUqcMs5IHY', 
+            't84f78NLo3E',
+            '2PX7DqleP8Q',
+            'A0_VENjSh1A',
+            'g9_QZ-q7LfU'
         ];
         
         function createVideoIframe(videoId, index) {
             return `
-                <div class="col-md-4">
-                    <div class="ratio ratio-9x16">
+                <div class="video-item">
+                    <div class="ratio">
                         <iframe src="https://www.youtube.com/embed/${videoId}" title="مثال فيديو ${index}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             `;
         }
         
-        const tabContent = document.getElementById('videoTabsContent');
-        videoCategories.forEach((category, catIndex) => {
-            const isActive = catIndex === 0;
-            const videosHtml = category.videos.map((videoId, vidIndex) => 
-                createVideoIframe(videoId, catIndex * 3 + vidIndex + 1)
-            ).join('');
-            
-            tabContent.innerHTML += `
-                <div class="tab-pane fade ${isActive ? 'show active' : ''}" id="${category.id}" role="tabpanel">
-                    <div class="row g-4">${videosHtml}</div>
-                </div>
-            `;
-        });
+        const videosContainer = document.getElementById('videosContainer');
+        // إنشاء نسختين من الفيديوهات للحركة اللانهائية
+        const allVideos = [...moroccoVideos, ...moroccoVideos];
+        const videosHtml = allVideos.map((videoId, index) => 
+            createVideoIframe(videoId, (index % moroccoVideos.length) + 1)
+        ).join('');
+        
+        videosContainer.innerHTML = videosHtml;
         
         const elements = {
             countdownNumber: document.querySelector('[data-countdown]'),
@@ -605,13 +328,6 @@
             if (elements.videoAnimatedBorder) elements.videoAnimatedBorder.classList.add('show-effect');
         }, 3000);
         
-        // إرسال الفورم إلى Google Sheets باستخدام script.js
-        // لاستخدام هذه الميزة:
-        // 1. اذهب إلى https://script.google.com
-        // 2. أنشئ مشروع جديد
-        // 3. الصق محتوى script.js في المشروع
-        // 4. انشر كـ Web App (Deploy > New deployment > Web app)
-        // 5. انسخ رابط Web App وضعها في GOOGLE_SCRIPT_URL أدناه
         
         const form = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
