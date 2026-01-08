@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
     <style>
         * { font-family: 'Tajawal', sans-serif; }
         
@@ -87,59 +88,17 @@
             white-space: nowrap;
         }
         
-        @media (max-width: 768px) {
-            .progress-text { font-size: 1.1rem; }
-        }
-        
-        /* السكرول اللانهائي المحسّن */
-        .videos-scroll-container {
-            overflow: hidden;
-            position: relative;
-            padding: 20px 0;
-            cursor: grab;
-            user-select: none;
-        }
-        .videos-scroll-container:active {
-            cursor: grabbing;
-        }
-        .videos-scroll-wrapper {
-            display: flex;
-            gap: 20px;
-            padding: 10px;
-            transition: transform 0.1s linear;
-        }
-        .video-item {
-            flex: 0 0 calc(33.333% - 14px);
-            min-width: calc(33.333% - 14px);
-        }
-        .video-item .ratio {
-            --bs-aspect-ratio: 150%;
-        }
-        
-        @media (max-width: 992px) {
-            .video-item {
-                flex: 0 0 calc(50% - 10px);
-                min-width: calc(50% - 10px);
-            }
-        }
-        @media (max-width: 768px) {
-            .video-item {
-                flex: 0 0 calc(90% - 10px);
-                min-width: calc(90% - 10px);
-            }
-        }
+        @media (max-width: 768px) { .progress-text { font-size: 1.1rem; } }
     </style>
 </head>
 <body class="text-dark">
 
-    <!-- Header مع اللوغو -->
     <header class="py-3">
         <div class="container text-center">
             <img src="https://adflix.ma/wp-content/uploads/2025/07/%D9%85%D8%AA%D8%B9%D9%88%D9%84%D8%B4-%D8%B9%D9%84%D9%89-Bouche-a-Oreil-%E2%80%A6-%D8%B9%D9%88%D9%84-%D8%B9%D9%84%D9%89-L-marketing-dial-adflix-4.png" alt="Logo" class="img-fluid" style="max-height: 80px;">
         </div>
     </header>
 
-    <!-- قسم الفيديو -->
     <section class="container py-5">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10">
@@ -148,25 +107,18 @@
                     <span class="text-dark" style="font-size: 1.4rem;">ابتداءا من </span><span class="text-primary-custom" style="font-size: 1.4rem;">349 درهم</span>
                 </h1>
                 <div class="video-animated-border" data-video-effect>
-                    <div class="ratio ratio-16x9">
-                        <iframe 
-                        title="vimeo-player" 
-                        src="https://player.vimeo.com/video/1149835798?h=966de49c2f&autoplay=1&muted=0&controls=1" 
-                        width="640" 
-                        height="360" 
-                        frameborder="0" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                        allowfullscreen>
-                        </iframe>
+                    <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                        <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                            <iframe src="https://fast.wistia.net/embed/iframe/quwuvlspp0?seo=false&videoFoam=true&autoPlay=true&muted=false&videoQuality=hd-1080" title="adflix video lp edited" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="100%"></iframe>
+                        </div>
                     </div>
                 </div>
-            <!-- شريط التقدم -->
+                <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
             <div class="progress-bar-container" data-countdown-box>
                 <div class="progress-bar-wrapper">
                     <div class="progress-bar-fill" data-progress-bar></div>
                     <div class="progress-text">
-                        ⏰  سيظهر العرض الكامل خلال <span class="fw-bold text-dark" data-countdown style="font-size: 1.5rem;">5</span>s 
+                        ⏰  سيظهر العرض الكامل خلال <span class="fw-bold text-dark" data-countdown style="font-size: 1.5rem;">1:00</span> 
                     </div>
                 </div>
             </div>
@@ -174,17 +126,25 @@
         </div>
     </section>
 
-    <!-- المحتوى الرئيسي -->
     <main data-main-content class="d-none bg-white py-5">
         <div class="container">
             <h2 class="text-center text-dark mb-3">أمثلة الفيديوهات</h2>
             
-            <!-- فيديوهات المغرب -->
-            <div class="videos-scroll-container" id="videosScrollContainer">
-                <div class="videos-scroll-wrapper" id="videosContainer"></div>
+            <div class="row g-4 justify-content-center" id="videosContainer">
+                <div class="col-auto text-center"><span class="wistia_embed wistia_async_ii4r32gl54 popover=true" style="display:inline-block;height:267px;position:relative;width:150px">&nbsp;</span></div>
+                <div class="col-auto text-center"><span class="wistia_embed wistia_async_dskgmzk3gg popover=true" style="display:inline-block;height:267px;position:relative;width:150px">&nbsp;</span></div>
+                <div class="col-auto text-center"><span class="wistia_embed wistia_async_ddmpdevnuq popover=true" style="display:inline-block;height:267px;position:relative;width:150px">&nbsp;</span></div>
+                <div class="col-auto text-center"><span class="wistia_embed wistia_async_gnwri285as popover=true" style="display:inline-block;height:267px;position:relative;width:150px">&nbsp;</span></div>
+                <div class="col-auto text-center"><span class="wistia_embed wistia_async_geno1jiccw popover=true" style="display:inline-block;height:267px;position:relative;width:150px">&nbsp;</span></div>
+                <div class="col-auto text-center"><span class="wistia_embed wistia_async_67j51xb312 popover=true" style="display:inline-block;height:267px;position:relative;width:150px">&nbsp;</span></div>
             </div>
+            <script src="https://fast.wistia.com/embed/medias/ii4r32gl54.jsonp" async></script>
+            <script src="https://fast.wistia.com/embed/medias/dskgmzk3gg.jsonp" async></script>
+            <script src="https://fast.wistia.com/embed/medias/ddmpdevnuq.jsonp" async></script>
+            <script src="https://fast.wistia.com/embed/medias/gnwri285as.jsonp" async></script>
+            <script src="https://fast.wistia.com/embed/medias/geno1jiccw.jsonp" async></script>
+            <script src="https://fast.wistia.com/embed/medias/67j51xb312.jsonp" async></script>
             
-            <!-- بطاقة العرض -->
             <div class="text-center mt-4">
                 <h3 class="text-primary-custom mb-0 fw-bold">فيديو إعلاني  ابتداءا من 349 درهم :</h3>
             </div>
@@ -192,7 +152,6 @@
         
         <div class="container py-5">
 
-            <!-- الاستمارة -->
             <div class="card bg-white border border-primary-custom shadow-lg mb-5">
                 <div class="card-body p-4">
                     <h3 class="text-center text-primary-custom mb-4 fw-bold">املئ الاستمارة و احصل على استشارة مجانية … تتعرف فيها على نوعية UGC Videos التي سترفع مبيعاتك</h3>
@@ -254,260 +213,57 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // فيديوهات المغرب - 10 فيديوهات
-        const moroccoVideos = [
-            'QOfM4AeLtwQ', 
-            'DJUqcMs5IHY', 
-            't84f78NLo3E',
-            '2PX7DqleP8Q',
-            'A0_VENjSh1A',
-            'g9_QZ-q7LfU',
-            'QOfM4AeLtwQ', 
-            'DJUqcMs5IHY', 
-            't84f78NLo3E',
-            '2PX7DqleP8Q'
-        ];
         
-        function createVideoIframe(videoId, index) {
-            return `
-                <div class="video-item">
-                    <div class="ratio">
-                        <iframe src="https://www.youtube.com/embed/${videoId}" title="مثال فيديو ${index}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-            `;
-        }
+        let timeLeft = 60;
+        const countdownNumber = document.querySelector('[data-countdown]');
+        const progressBar = document.querySelector('[data-progress-bar]');
+        const countdownBox = document.querySelector('[data-countdown-box]');
+        const mainContent = document.querySelector('[data-main-content]');
+        const videoAnimatedBorder = document.querySelector('[data-video-effect]');
         
-        const videosContainer = document.getElementById('videosContainer');
-        const scrollContainer = document.getElementById('videosScrollContainer');
-        
-        // سكرول لا نهائي محسّن
-        let isDragging = false;
-        let startX = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-        let animationID = 0;
-        let isAutoScrolling = true;
-        let videosInitialized = false;
-        
-        // دالة لتهيئة الفيديوهات والسكرول
-        function initializeVideos() {
-            if (videosInitialized) return;
-            videosInitialized = true;
-            
-            // إنشاء 3 نسخ من الفيديوهات للسكرول اللانهائي السلس
-            const tripleVideos = [...moroccoVideos, ...moroccoVideos, ...moroccoVideos];
-            const videosHtml = tripleVideos.map((videoId, index) => 
-                createVideoIframe(videoId, (index % moroccoVideos.length) + 1)
-            ).join('');
-            
-            videosContainer.innerHTML = videosHtml;
-            
-            // بدء السكرول التلقائي بعد تهيئة الفيديوهات
-            setTimeout(() => {
-                autoScroll();
-            }, 100);
-        }
-        
-        // حساب عرض فيديو واحد مع المسافة
-        function getVideoWidth() {
-            const videoItem = videosContainer.querySelector('.video-item');
-            if (!videoItem) return 0;
-            return videoItem.offsetWidth + 20; // 20 هي المسافة بين الفيديوهات
-        }
-        
-        // السكرول التلقائي
-        function autoScroll() {
-            if (!isDragging && isAutoScrolling && videosInitialized) {
-                currentTranslate -= 0.5;
-                const videoWidth = getVideoWidth();
-                if (videoWidth > 0) {
-                    const oneSetWidth = videoWidth * moroccoVideos.length;
-                    
-                    // عندما نصل لنهاية المجموعة الأولى، نرجع للبداية
-                    if (Math.abs(currentTranslate) >= oneSetWidth) {
-                        currentTranslate = currentTranslate + oneSetWidth;
-                    }
-                    
-                    videosContainer.style.transform = `translateX(${currentTranslate}px)`;
-                }
-            }
-            if (videosInitialized) {
-                animationID = requestAnimationFrame(autoScroll);
-            }
-        }
-        
-        // السحب بالماوس
-        scrollContainer.addEventListener('mousedown', (e) => {
-            if (!videosInitialized) return;
-            isDragging = true;
-            startX = e.clientX;
-            prevTranslate = currentTranslate;
-            scrollContainer.style.cursor = 'grabbing';
-            cancelAnimationFrame(animationID);
-        });
-        
-        scrollContainer.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            const currentX = e.clientX;
-            const diff = currentX - startX;
-            currentTranslate = prevTranslate + diff;
-            videosContainer.style.transform = `translateX(${currentTranslate}px)`;
-        });
-        
-        scrollContainer.addEventListener('mouseup', () => {
-            if (!isDragging) return;
-            isDragging = false;
-            scrollContainer.style.cursor = 'grab';
-            
-            // التأكد من أن الموقع ضمن الحدود
-            const videoWidth = getVideoWidth();
-            const oneSetWidth = videoWidth * moroccoVideos.length;
-            
-            // إعادة تعيين الموضع بشكل صحيح
-            if (currentTranslate > 0) {
-                currentTranslate = currentTranslate - oneSetWidth;
-            }
-            while (Math.abs(currentTranslate) >= oneSetWidth) {
-                if (currentTranslate < 0) {
-                    currentTranslate = currentTranslate + oneSetWidth;
-                } else {
-                    currentTranslate = currentTranslate - oneSetWidth;
-                }
-            }
-            
-            autoScroll();
-        });
-        
-        scrollContainer.addEventListener('mouseleave', () => {
-            if (isDragging) {
-                isDragging = false;
-                scrollContainer.style.cursor = 'grab';
-                autoScroll();
-            }
-        });
-        
-        // السحب باللمس (للموبايل)
-        scrollContainer.addEventListener('touchstart', (e) => {
-            if (!videosInitialized) return;
-            isDragging = true;
-            startX = e.touches[0].clientX;
-            prevTranslate = currentTranslate;
-            cancelAnimationFrame(animationID);
-        });
-        
-        scrollContainer.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const currentX = e.touches[0].clientX;
-            const diff = currentX - startX;
-            currentTranslate = prevTranslate + diff;
-            videosContainer.style.transform = `translateX(${currentTranslate}px)`;
-        });
-        
-        scrollContainer.addEventListener('touchend', () => {
-            if (!isDragging) return;
-            isDragging = false;
-            
-            const videoWidth = getVideoWidth();
-            const oneSetWidth = videoWidth * moroccoVideos.length;
-            
-            // إعادة تعيين الموضع بشكل صحيح
-            if (currentTranslate > 0) {
-                currentTranslate = currentTranslate - oneSetWidth;
-            }
-            while (Math.abs(currentTranslate) >= oneSetWidth) {
-                if (currentTranslate < 0) {
-                    currentTranslate = currentTranslate + oneSetWidth;
-                } else {
-                    currentTranslate = currentTranslate - oneSetWidth;
-                }
-            }
-            
-            autoScroll();
-        });
-        
-        // إيقاف السكرول التلقائي عند التمرير فوق الفيديو
-        scrollContainer.addEventListener('mouseenter', () => {
-            isAutoScrolling = false;
-        });
-        
-        scrollContainer.addEventListener('mouseleave', () => {
-            isAutoScrolling = true;
-        });
-        
-        // Countdown & Progress Bar
-        const elements = {
-            countdownNumber: document.querySelector('[data-countdown]'),
-            countdownBox: document.querySelector('[data-countdown-box]'),
-            progressBar: document.querySelector('[data-progress-bar]'),
-            mainContent: document.querySelector('[data-main-content]'),
-            videoAnimatedBorder: document.querySelector('[data-video-effect]')
-        };
-        
-        let timeLeft = 5;
-        const totalTime = 5;
-        const progressInterval = setInterval(() => {
+        const progressInterval = setInterval(function() {
             timeLeft--;
-            const progress = ((totalTime - timeLeft) / totalTime) * 100;
-            
-            const displayTime = timeLeft + 's';
-            
-            if (elements.countdownNumber) elements.countdownNumber.textContent = displayTime;
-            if (elements.progressBar) elements.progressBar.style.width = progress + '%';
-            
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const displayTime = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            if (countdownNumber) countdownNumber.textContent = displayTime;
+            if (progressBar) progressBar.style.width = ((60 - timeLeft) / 60 * 100) + '%';
             if (timeLeft <= 0) {
                 clearInterval(progressInterval);
-                if (elements.progressBar) elements.progressBar.style.width = '100%';
-                setTimeout(() => {
-                    if (elements.countdownBox) elements.countdownBox.style.display = 'none';
-                    if (elements.mainContent) {
-                        elements.mainContent.classList.remove('d-none');
-                        // تهيئة الفيديوهات فور ظهور المحتوى
-                        initializeVideos();
-                        setTimeout(() => {
-                            window.scrollTo({ top: elements.mainContent.offsetTop - 50, behavior: 'smooth' });
+                if (progressBar) progressBar.style.width = '100%';
+                setTimeout(function() {
+                    if (countdownBox) countdownBox.style.display = 'none';
+                    if (mainContent) {
+                        mainContent.classList.remove('d-none');
+                        setTimeout(function() {
+                            window.scrollTo({ top: mainContent.offsetTop - 50, behavior: 'smooth' });
                         }, 200);
                     }
                 }, 300);
             }
         }, 1000);
         
-        setTimeout(() => {
-            if (elements.videoAnimatedBorder) elements.videoAnimatedBorder.classList.add('show-effect');
+        setTimeout(function() {
+            if (videoAnimatedBorder) videoAnimatedBorder.classList.add('show-effect');
         }, 3000);
         
-        // Form Submission
         const form = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
         const submitText = document.getElementById('submitText');
         const submitSpinner = document.getElementById('submitSpinner');
         const formMessage = document.getElementById('formMessage');
-        
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDJkQ-mLJ4d2GssKfh7KU12wabMSJMACVqYobxQaJU-zT9lK_QsEIxo6kmppKZUDYq/exec';
         
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
             submitBtn.disabled = true;
             submitText.textContent = 'جاري الإرسال...';
             submitSpinner.classList.remove('d-none');
             formMessage.classList.add('d-none');
             
             const formData = new FormData(form);
-            
             const now = new Date();
-            const dateStr = now.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: '2-digit', 
-                day: '2-digit' 
-            });
-            const timeStr = now.toLocaleTimeString('en-US', { 
-                hour: '2-digit', 
-                minute: '2-digit',
-                hour12: true 
-            });
-            const formattedDate = `${dateStr} ${timeStr}`;
+            const formattedDate = now.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }) + ' ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
             
             const data = {
                 form_name: 'Adflix Contact Form',
@@ -519,34 +275,27 @@
                 market: formData.get('market')
             };
             
-            try {
-                const formDataToSend = new URLSearchParams();
-                Object.keys(data).forEach(key => {
-                    formDataToSend.append(key, data[key]);
-                });
-                
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: formDataToSend.toString()
-                });
-                
+            const formDataToSend = new URLSearchParams();
+            for (let key in data) {
+                formDataToSend.append(key, data[key]);
+            }
+            
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formDataToSend.toString()
+            }).then(function() {
                 form.reset();
                 window.location.href = 'https://adflix.ma/thank-you/';
-                
-            } catch (error) {
+            }).catch(function() {
                 formMessage.classList.remove('d-none');
-                formMessage.classList.remove('alert-success');
                 formMessage.classList.add('alert-danger');
                 formMessage.textContent = '❌ حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى أو التواصل معنا على WhatsApp.';
-            } finally {
                 submitBtn.disabled = false;
                 submitText.textContent = 'إرسال الطلب الآن';
                 submitSpinner.classList.add('d-none');
-            }
+            });
         });
     </script>
 
