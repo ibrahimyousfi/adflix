@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO & Social Tags -->
+    <title>Adflix x Brands | Triplez votre chiffre d’affaires</title>
+    <meta name="description" content="Andromeda a changé les règles. Découvrez comment scaler votre marque grâce aux variantes créatives." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Adflix x Brands | Triplez votre chiffre d’affaires" />
+    <meta property="og:description" content="Andromeda a changé les règles. Découvrez comment scaler votre marque grâce aux variantes créatives." />
+    <meta property="og:image" content="https://adflix.ma/brands/logo.png" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Load Configuration File -->
+    <script src="config.js"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                dark: '#0f172a',
+                accent: '#FF2464', // Main Brand Color
+                purple: '#833AB4', // Instagram-like purple
+                gradient1: '#F58529',
+                gradient2: '#FF2464',
+                gradient3: '#8134AF',
+              }
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'fade-in': 'fadeIn 1s ease-out forwards',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'scale-in': 'scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'marquee': 'marquee 25s linear infinite',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: 0, transform: 'translateY(30px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' },
+              },
+              fadeIn: {
+                '0%': { opacity: 0 },
+                '100%': { opacity: 1 },
+              },
+              scaleIn: {
+                '0%': { opacity: 0, transform: 'scale(0.95)' },
+                '100%': { opacity: 1, transform: 'scale(1)' },
+              },
+              marquee: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #ffffff;
+        color: #111827;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      .glass-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      
+      .gradient-text {
+        background: linear-gradient(135deg, #833AB4 0%, #FF2464 50%, #F58529 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .progress-bar-wrapper {
+        width: 100%;
+        height: 30px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+      }
+      .progress-bar-fill {
+        height: 100%;
+        background: #c9004d;
+        border-radius: 6px;
+        width: 0%;
+        transition: width 0.1s linear;
+      }
+      .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #111827;
+        z-index: 10;
+        white-space: nowrap;
+      }
+    </style>
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  // Initialize Pixel with ID from config.js
+  if (window.APP_CONFIG && window.APP_CONFIG.PIXEL_ID) {
+    fbq('init', window.APP_CONFIG.PIXEL_ID);
+    fbq('track', 'PageView');
+  } else {
+    console.error("Pixel ID not found in config.js");
+  }
+</script>
+<!-- End Meta Pixel Code -->
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-DMafgCMA.js"></script>
+</head>
+  <body>
+    <!-- Meta Pixel Code (noscript) -->
+    
+    <div id="root"></div>
+    
+    <!-- Dynamic Noscript Image -->
+    <noscript>
+      <img height="1" width="1" style="display:none" id="fb-pixel-noscript" src="" />
+    </noscript>
+    <script>
+      // Set the noscript image source dynamically based on config
+      if (window.APP_CONFIG && window.APP_CONFIG.PIXEL_ID) {
+        document.getElementById('fb-pixel-noscript').src = 
+          "https://www.facebook.com/tr?id=" + window.APP_CONFIG.PIXEL_ID + "&ev=PageView&noscript=1";
+      }
+    </script>
+    
+    <script>
+      // Countdown Timer and Progress Bar
+      let timeLeft = 60;
+      let progressBarElement = null;
+      let countdownBoxElement = null;
+      let countdownNumberElement = null;
+      
+      // Function to create and insert progress bar inside root
+      function createProgressBar() {
+        const rootContent = document.getElementById('root');
+        if (!rootContent) return;
+        
+        // Check if progress bar already exists
+        if (document.querySelector('[data-countdown-box]')) return;
+        
+        // Wait for React to render first element
+        const checkInterval = setInterval(function() {
+          const children = rootContent.children;
+          if (children.length > 0) {
+            clearInterval(checkInterval);
+            
+            // Create progress bar element
+            const progressBarHTML = `
+              <div class="progress-bar-container mt-4" data-countdown-box style="max-width: 600px; margin: 20px auto; padding: 0 20px;">
+                <div class="progress-bar-wrapper">
+                  <div class="progress-bar-fill" data-progress-bar></div>
+                  <div class="progress-text">
+                    ⏰  L'offre complète apparaîtra dans <span class="fw-bold text-dark" data-countdown style="font-size: 1.5rem; font-weight: bold;">1:00</span> 
+                  </div>
+                </div>
+              </div>
+            `;
+            
+            // Insert after first child (video section)
+            const firstChild = children[0];
+            if (firstChild && firstChild.nextSibling) {
+              firstChild.insertAdjacentHTML('afterend', progressBarHTML);
+            } else {
+              rootContent.insertAdjacentHTML('beforeend', progressBarHTML);
+            }
+            
+            // Get references to progress bar elements
+            countdownBoxElement = document.querySelector('[data-countdown-box]');
+            progressBarElement = document.querySelector('[data-progress-bar]');
+            countdownNumberElement = document.querySelector('[data-countdown]');
+            
+            // Start countdown
+            startCountdown();
+          }
+        }, 200);
+        
+        // Stop checking after 10 seconds
+        setTimeout(function() {
+          clearInterval(checkInterval);
+        }, 10000);
+        }
+        
+      // Function to ensure content is hidden (runs periodically)
+      function ensureContentHidden() {
+        const rootContent = document.getElementById('root');
+        if (rootContent && !rootContent.classList.contains('show-all')) {
+          const children = rootContent.children;
+          // Hide all except first child and progress bar
+          for (let i = 0; i < children.length; i++) {
+            const child = children[i];
+            if (i > 0 && !child.hasAttribute('data-countdown-box')) {
+              child.style.display = 'none';
+            }
+          }
+        }
+      }
+      
+      // Start countdown timer
+      function startCountdown() {
+        // Check periodically to hide any new content React adds
+        const hideInterval = setInterval(function() {
+          if (timeLeft > 0) {
+            ensureContentHidden();
+          } else {
+            clearInterval(hideInterval);
+          }
+        }, 500);
+        
+        // Countdown timer
+        const progressInterval = setInterval(function() {
+          timeLeft--;
+          const minutes = Math.floor(timeLeft / 60);
+          const seconds = timeLeft % 60;
+          const displayTime = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+          if (countdownNumberElement) countdownNumberElement.textContent = displayTime;
+          if (progressBarElement) progressBarElement.style.width = ((60 - timeLeft) / 60 * 100) + '%';
+          
+          if (timeLeft <= 0) {
+            clearInterval(progressInterval);
+            clearInterval(hideInterval);
+            if (progressBarElement) progressBarElement.style.width = '100%';
+            setTimeout(function() {
+              if (countdownBoxElement) countdownBoxElement.style.display = 'none';
+              
+              // Show all content by adding class
+              const rootContent = document.getElementById('root');
+              if (rootContent) {
+                rootContent.classList.add('show-all');
+                // Also manually show all children
+                const children = rootContent.children;
+                for (let i = 0; i < children.length; i++) {
+                  if (!children[i].hasAttribute('data-countdown-box')) {
+                    children[i].style.display = '';
+                  }
+                }
+              }
+            }, 300);
+          }
+        }, 1000);
+      }
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        // Wait a bit for React to start loading
+        setTimeout(createProgressBar, 500);
+      });
+    </script>
+</body>
+</html>

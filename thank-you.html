@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شكراً لك - Adflix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // Get Pixel ID from URL parameter or use default
+        const urlParams = new URLSearchParams(window.location.search);
+        const pixelId = urlParams.get('pixel_id') || '727924226815780';
+        
+        fbq('init', pixelId);
+        fbq('track', 'PageView');
+        
+        /* Purchase Event */
+        fbq('track', 'Purchase');
+    </script>
+    <noscript>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const pixelId = urlParams.get('pixel_id') || '727924226815780';
+            document.write('<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=' + pixelId + '&ev=PageView&noscript=1" />');
+        </script>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    
+    <style>
+      /* Base styles to ensure proper rendering in various environments */
+      body {
+        font-family: 'Tajawal', sans-serif;
+        background-color: #121212; /* Fallback background */
+      }
+    </style>
+</head>
+<body>
+
+    <header class="py-3 text-center bg-[#121212]">
+        <div class="container mx-auto px-4">
+            <img src="adfix-logo.png" alt="Logo" class="mx-auto block" style="max-height: 80px; height: auto; width: auto;">
+        </div>
+    </header>
+
+    <main class="bg-[#121212] flex justify-center p-4 pt-8">
+      <div class="relative w-full max-w-md mx-auto bg-[#1a1a1a] rounded-2xl shadow-2xl shadow-black/50 overflow-hidden border border-gray-700/50">
+        
+        <!-- Decorative background glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#c9004d]/20 rounded-full blur-3xl opacity-50"></div>
+        
+        <div class="relative z-10 p-8 sm:p-12 text-center">
+            
+          <div class="mb-8">
+            <!-- Inlined CheckCircleIcon SVG -->
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="w-24 h-24 text-[#c9004d] mx-auto"
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor" 
+              stroke-width="1"
+            >
+              <path 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
+              />
+            </svg>
+          </div>
+
+          <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            شكراً على تقتك بنا
+          </h1>
+
+          <p class="text-gray-300 text-lg mb-10">
+            لقد استلمنا رسالتك بنجاح. لتسريع معالجة طلبك وإعطائه الأولوية، ننصحك بالتواصل معنا مباشرة عبر الواتساب.
+          </p>
+
+          <!-- Button with hover fix -->
+          <a
+            href="https://wa.me/message/FZGWHQYUN64SD1"
+            class="inline-block bg-[#25D366] text-white hover:text-white font-bold py-3 px-10 rounded-full hover:bg-[#20BA5A] transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg shadow-[#25D366]/20"
+          >
+            تواصل معنا عبر الواتساب
+          </a>
+        </div>
+      </div>
+    </main>
+
+</body>
+</html>
