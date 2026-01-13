@@ -11,7 +11,7 @@ function createHeader(config) {
     
     const header = document.createElement('header');
     header.className = 'fixed-header';
-    
+     
     const container = document.createElement('div');
     container.className = 'container';
     

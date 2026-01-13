@@ -103,5 +103,4 @@ function initFormSubmission(config) {
             window.location.href = redirectUrl;
         }, 200);
     });
-}
-
+} 

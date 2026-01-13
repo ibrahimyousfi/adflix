@@ -11,7 +11,7 @@ function initFacebookPixel(pixelId) {
     fbq('init', pixelId);
     fbq('track', 'PageView');
 }
-
+ 
 function initFacebookPixelWithPurchase(pixelId) {
     const urlParams = new URLSearchParams(window.location.search);
     const finalPixelId = urlParams.get('pixel_id') || pixelId;
