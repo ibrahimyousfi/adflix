@@ -1,0 +1,4 @@
+#!/bin/bash
+# Git hook to configure settings after merge
+git config pull.rebase false
+git config core.autocrlf false
