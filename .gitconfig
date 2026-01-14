@@ -1,0 +1,9 @@
+[pull]
+    rebase = false
+    ff = only
+[core]
+    autocrlf = false
+    filemode = false
+[branch]
+    autosetupmerge = true
+    autosetuprebase = false
